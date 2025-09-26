@@ -16,7 +16,7 @@ interface Props {
   sortDir: 'asc' | 'desc';
   grades: string[]; // available grade options
   onSearchChange: (s: string) => void;
-  onGradeChange: (g: string) => void;
+
   onSortChange: (by: 'name' | 'age', dir: 'asc' | 'desc') => void;
   onClear: () => void;
 }
@@ -26,9 +26,8 @@ const StudentSearchSortFilter: React.FC<Props> = ({
   gradeFilter,
   sortBy,
   sortDir,
-  grades,
   onSearchChange,
-  onGradeChange,
+
   onSortChange,
   onClear,
 }) => {
@@ -47,14 +46,9 @@ const StudentSearchSortFilter: React.FC<Props> = ({
         <Select
           value={gradeFilter}
           label="Grade"
-          onChange={(e) => onGradeChange(e.target.value)}
+
         >
           <MenuItem value="all">Tất cả</MenuItem>
-          {grades.map((g) => (
-            <MenuItem key={g} value={g}>
-              {g}
-            </MenuItem>
-          ))}
         </Select>
       </FormControl>
 
